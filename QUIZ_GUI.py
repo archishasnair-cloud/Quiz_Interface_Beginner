@@ -221,7 +221,7 @@ class QuizApp(tk.Tk):
             e.insert(0, defaults[i])
             entries.append(e)
 
-     def save():
+        def save():
             values = [e.get() for e in entries]
             if question:
                 self.cursor.execute("UPDATE questions SET question=?, option_a=?, option_b=?, option_c=?, option_d=?, correct_option=? WHERE id=?", (*values, question[0]))
@@ -331,7 +331,7 @@ class QuizApp(tk.Tk):
         for i, score in enumerate(scores):
             tk.Label(win, text=f"{score[1]}  {score[2]}  {score[3]}").grid(row=i, column=0, sticky="w")
 
-    def delete_score():
+        def delete_score():
             rowid = simpledialog.askinteger("Delete Score", "Enter RowID to delete:")
             if rowid:
                 self.cursor.execute("DELETE FROM scores WHERE rowid=?", (rowid,))
@@ -352,5 +352,6 @@ class QuizApp(tk.Tk):
 if __name__ == "__main__":
     app = QuizApp()
     app.mainloop()
+
 
 
