@@ -151,14 +151,14 @@ class QuizApp(tk.Tk):
         entries.append(e)
 
     
-     def delete_question(self):
+    def delete_question(self):
         qid = simpledialog.askinteger("Delete Question", "Enter Question ID to delete:")
         if qid:
             self.cursor.execute("DELETE FROM questions WHERE id=?", (qid,))
             self.conn.commit()
             messagebox.showinfo("Success", "Question deleted!")
 
-     def view_all_questions(self):
+    def view_all_questions(self):
       win = tk.Toplevel(self)
       win.title("All Questions")
       win.geometry("750x450")
@@ -352,3 +352,4 @@ class QuizApp(tk.Tk):
 if __name__ == "__main__":
     app = QuizApp()
     app.mainloop()
+
